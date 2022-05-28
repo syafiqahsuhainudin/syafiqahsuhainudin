@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <form method ="post" action="OrderController" >
+ Crust
+ <select name="crust">
+  <option value="Classic">Classic</option>
+  <option value="Thin Crust">Thin Crust</option>
+  <option value="Melaka Crust">Melaka Crust</option>
+  <option value="Cheese Crust">Cheese Crust</option>
+</select>
+<br><br>Extra Cheese:
+ <input type="radio" name="extracheese" value="Yes"> Yes
+  <input type="radio" name="extracheese" value="No"> No
+  
+<br><br>Topping:
+ <input type="radio" name="topping" value="Beef"> Beef
+  <input type="radio" name="topping" value="Chicken"> Chicken
+   <input type="radio" name="topping" value="Mushroom"> Mushroom
+  <input type="radio" name="topping" value="Pineapple"> Pineapple
+  
+  <br><br>Quantity:
+  <input type="number" name="quantity" value="" min="1"><br><br>
+  Email:
+  <input type="email" name="email">
+  
+  <br><br>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+ </form>
+</body>
+</html>

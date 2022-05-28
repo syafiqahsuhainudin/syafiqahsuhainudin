@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  File created - Wednesday-June-12-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence CUSTOMER_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "CARWASH"."CUSTOMER_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;

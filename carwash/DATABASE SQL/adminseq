@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  File created - Wednesday-June-12-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence ADMIN_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "CARWASH"."ADMIN_SEQ"  MINVALUE 1 MAXVALUE 50000 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE ;

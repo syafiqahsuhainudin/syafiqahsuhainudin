@@ -1,0 +1,57 @@
+--------------------------------------------------------
+--  File created - Wednesday-June-12-2019   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ADMIN
+--------------------------------------------------------
+
+  CREATE TABLE "CARWASH"."ADMIN" 
+   (	"ADMINUSERNAME" VARCHAR2(20 BYTE), 
+	"ADMINPASS" VARCHAR2(8 BYTE), 
+	"ADMINID" NUMBER(30,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into CARWASH.ADMIN
+SET DEFINE OFF;
+Insert into CARWASH.ADMIN (ADMINUSERNAME,ADMINPASS,ADMINID) values ('admin','admin',1);
+--------------------------------------------------------
+--  DDL for Index ADMIN_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CARWASH"."ADMIN_PK" ON "CARWASH"."ADMIN" ("ADMINID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Trigger ADMINID_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "CARWASH"."ADMINID_TRI" 
+   before insert on "CARWASH"."ADMIN" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ADMINID" is null then 
+         select ADMIN_SEQ.nextval into :NEW."ADMINID" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "CARWASH"."ADMINID_TRI" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table ADMIN
+--------------------------------------------------------
+
+  ALTER TABLE "CARWASH"."ADMIN" ADD CONSTRAINT "ADMIN_PK" PRIMARY KEY ("ADMINID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "CARWASH"."ADMIN" MODIFY ("ADMINID" NOT NULL ENABLE);
+  ALTER TABLE "CARWASH"."ADMIN" MODIFY ("ADMINPASS" NOT NULL ENABLE);
+  ALTER TABLE "CARWASH"."ADMIN" MODIFY ("ADMINUSERNAME" NOT NULL ENABLE);
